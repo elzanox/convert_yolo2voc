@@ -20,7 +20,7 @@ def yolo2voc(txt_file: str) -> None:
         txt_file: str
     """
     w, h = Image.open(os.path.join(config.IMAGE_DIR, f"{txt_file[:-4]}.jpg")).size
-    writer = Writer(f"{txt_file[:-4]}.xml", w, h)
+    writer = Writer(f"{txt_file[:-4]}.jpg", w, h)
     with open(os.path.join(config.LABEL_DIR, txt_file)) as f:
         for line in f.readlines():
             label, x_center, y_center, width, height = line.rstrip().split(" ")
